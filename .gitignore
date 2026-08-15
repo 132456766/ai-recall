@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+build/
+out/
+
+# env / secrets
+.env
+.env.local
+*.local
+
+# logs
+*.log
+/tmp/
+
+# machine-specific dev watchdog scripts (hardcoded local paths)
+watchdog.sh
+watchdog.ps1
+register-watchdog.ps1
+start-dev.ps1
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
