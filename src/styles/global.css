@@ -1,0 +1,243 @@
+/* 全局基础样式 + 新粗野主义通用组件类
+   规范：组件样式必须基于 Token 构建；Hover 实现 300ms 硬切换（无渐变）；
+   Active 清除阴影并整体下移 2px（模拟物理按压）。 */
+@import './tokens.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, .font-title {
+  font-family: var(--font-title);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-title);
+  cursor: pointer;
+}
+
+/* ============ 按钮 ============ */
+/* 主按钮：热粉底 + 3px黑框 + 硬边阴影 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-solid);
+  border-radius: var(--radius-none);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 14px;
+  background: #fff;
+  color: #000;
+  box-shadow: var(--shadow-card);
+  /* 300ms 硬切换，无渐变 */
+  transition: background 300ms steps(1), color 300ms steps(1),
+    box-shadow 300ms steps(1), transform 300ms steps(1);
+  user-select: none;
+}
+.btn:hover {
+  background: var(--color-accent);
+  color: #000;
+}
+.btn:active {
+  box-shadow: var(--shadow-card-active);
+  transform: translate(2px, 2px);
+}
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: var(--shadow-card);
+  transform: none;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--border-default);
+}
+.btn-primary:hover {
+  background: var(--color-primary);
+  color: #fff;
+  filter: brightness(1.08);
+}
+.btn-secondary {
+  background: #fff;
+  color: #000;
+}
+.btn-danger {
+  background: var(--color-error);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: var(--color-error);
+  color: #fff;
+  filter: brightness(1.08);
+}
+.btn-sm {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 12px;
+  box-shadow: 2px 2px 0 0 var(--border-default);
+}
+.btn-loading {
+  position: relative;
+}
+.spinner-square {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  animation: spin90 0.7s steps(4) infinite;
+}
+@keyframes spin90 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============ 卡片 ============ */
+.nb-card {
+  background: var(--bg-card);
+  border: var(--border-solid);
+  border-radius: var(--radius-none);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-md);
+}
+.nb-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============ 输入框 ============ */
+.nb-input,
+.nb-select,
+.nb-textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: var(--border-solid);
+  border-radius: var(--radius-none);
+  background: #fff;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+}
+.nb-input:focus,
+.nb-select:focus,
+.nb-textarea:focus {
+  border: 3px solid var(--color-primary);
+}
+.nb-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+/* ============ 标签 / 徽章 ============ */
+.nb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px var(--space-xs);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-none);
+  font-family: var(--font-title);
+  font-size: 12px;
+  font-weight: 700;
+  background: #fff;
+  color: #000;
+}
+.nb-badge-accent {
+  background: var(--color-accent);
+}
+.nb-badge-subject {
+  background: var(--color-secondary);
+  border-color: var(--border-default);
+}
+
+/* ============ 工具类 ============ */
+.row {
+  display: flex;
+  align-items: center;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.spread { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.muted { color: var(--text-tertiary); }
+.secondary { color: var(--text-secondary); }
+.text-center { text-align: center; }
+.full { width: 100%; }
+
+/* 硬切闪烁动画（视图切换全屏闪光） */
+@keyframes flash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.flash-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flash 100ms steps(1) forwards;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  border: var(--border-solid);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-title);
+  font-weight: 800;
+  z-index: 10000;
+}
+
+/* 管理台两栏布局在窄屏下堆叠（设计文档：非对称栅格 + 响应式） */
+@media (max-width: 900px) {
+  .admin-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 侧边栏/管理导航：图标与文字对齐 */
+.nav-item svg {
+  flex-shrink: 0;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "recall-ai-errorbook",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Recall 智能错题本 — Neo-Brutalism Web App (MVP/V1.0/V2.0)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
+    "echarts": "^5.5.1",
+    "idb": "^8.0.0",
+    "katex": "^0.16.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.2",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^25.0.1",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.3"
+  }
+}

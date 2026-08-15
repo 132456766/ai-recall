@@ -1,0 +1,108 @@
+/* =========================================================================
+   Recall 设计系统 — 新粗野主义 (Neo-Brutalism) 设计 Token
+   来源：Recall智能错题本设计文档-新粗野主义版.docx
+   规范：所有 Token 必须在 :root 中统一定义，业务组件禁止硬编码颜色/尺寸
+   ========================================================================= */
+:root {
+  /* ---- 2.1 色彩体系 ---- */
+  --color-primary: #ff006e;   /* 热粉 — 主按钮/活跃/链接 */
+  --color-primary-dark: #ff4d88;
+  --bg-page: #ffffff;         /* 页面背景 纯白 */
+  --bg-card: #ffffff;         /* 卡片背景 纯白 */
+  --bg-surface: #f8f8f8;      /* 次级背景/侧边栏 */
+  --text-primary: #000000;    /* 文字主 */
+  --text-secondary: #333333;  /* 文字次 */
+  --text-tertiary: #666666;   /* 文字辅 */
+
+  --color-success: #00b856;   /* 成功/已掌握/答对 */
+  --color-success-dark: #34d399;
+  --color-warning: #ff9f1c;   /* 警告/模糊/待复习 */
+  --color-warning-dark: #fbbf24;
+  --color-error: #ff3b30;     /* 错误/未掌握/答错 */
+  --color-error-dark: #f87171;
+
+  --border-question: #ff006e; /* 题目区左侧粗边框 */
+  --border-solution: #00b856; /* 解析区左侧粗边框 */
+  --color-accent: #ffbe0b;    /* 强调 亮黄 AI提示/重点/徽章 */
+  --color-secondary: #00f5ff; /* 次主色 电光青 AI对话/次要操作 */
+  --border-default: #000000;  /* 全局 3px 纯黑实线边框 */
+
+  /* ---- 2.2 错题本掌握度 8 色方案 ---- */
+  --mastery-pink: #ff006e;    /* 语文/文学类 */
+  --mastery-cyan: #00f5ff;    /* 化学/实验类 */
+  --mastery-yellow: #ffbe0b;  /* 历史/人文类 */
+  --mastery-green: #00b856;   /* 生物/自然类 */
+  --mastery-blue: #2563eb;    /* 数学/逻辑类 */
+  --mastery-purple: #8b5cf6;  /* 物理/抽象类 */
+  --mastery-orange: #ff9f1c;  /* 英语/语言类 */
+  --mastery-indigo: #6366f1;  /* 地理/综合类 */
+
+  /* 掌握度状态色（C-03 红/黄/绿） */
+  --mastery-unmastered: var(--color-error);
+  --mastery-fuzzy: var(--color-warning);
+  --mastery-mastered: var(--color-success);
+
+  /* ---- 2.3 字体系统 ---- */
+  --font-title: "SimHei", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-body: "SimSun", "宋体", "Noto Serif SC", serif;
+  --font-mono: "Courier New", "Consolas", monospace;
+  --font-math: "KaTeX_Main", "Times New Roman", serif;
+
+  /* ---- 2.4 间距系统 (Base 8px) ---- */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+
+  /* ---- 2.5 / 2.6 边框与圆角 ---- */
+  --border-width: 3px;
+  --border-solid: 3px solid #000000;
+  --radius-none: 0px; /* 新粗野主义：全部直角 */
+
+  /* ---- 2.7 硬边阴影 ---- */
+  --shadow-card: 4px 4px 0px 0px #000000;
+  --shadow-card-hover: 2px 2px 0px 0px #000000;
+  --shadow-card-active: 0px 0px 0px 0px #000000;
+  --shadow-modal: 6px 6px 0px 0px #000000;
+  --shadow-nav: 0px 3px 0px 0px #000000;
+
+  /* ---- 非对称栅格 ---- */
+  --sidebar-w: 200px;
+  --content-max: 800px;
+  --max-width: 1440px;
+
+  /* 错题区/解析区浅背景 */
+  --bg-question: #fff0f3;
+  --bg-solution: #f0fff4;
+  --bg-user-msg: #ffe0eb;  /* 用户消息 右对齐热粉底 */
+  --bg-ai-msg: #e0ffff;    /* AI消息 左对齐电光青底 */
+}
+
+/* 暗色主题 */
+[data-theme='dark'] {
+  --color-primary: #ff4d88;
+  --bg-page: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --bg-surface: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-tertiary: #888888;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --border-question: #ff4d88;
+  --border-solution: #34d399;
+  --color-accent: #fcd34d;
+  --color-secondary: #22d3ee;
+  --border-default: #ffffff;
+  --shadow-card: 4px 4px 0px 0px #ffffff;
+  --shadow-card-hover: 2px 2px 0px 0px #ffffff;
+  --shadow-modal: 6px 6px 0px 0px #ffffff;
+  --shadow-nav: 0px 3px 0px 0px #ffffff;
+  --bg-question: #2a1118;
+  --bg-solution: #0f2417;
+  --bg-user-msg: #3a1726;
+  --bg-ai-msg: #0e2a2a;
+}
